@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Қалалар аудио</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div id="menu-btn" class="fas fa-bars"></div>
+    <a data-aos="zoom-in-left" href="#" class="logo"><i class="fa-solid fa-hat-cowboy"></i> СаяХАТ </a>
+    <nav class="navbar">
+        <a data-aos="zoom-in-left" data-aos-delay="300" href="main.html">Басты бет</a>
+        <a data-aos="zoom-in-left" data-aos-delay="450" href="about.html">Біз туралы</a>
+        <a data-aos="zoom-in-left" data-aos-delay="600" href="destinations.html">Бағыттар</a>
+        <a data-aos="zoom-in-left" data-aos-delay="600" href="services.html">Қызметтер</a>
+        <a data-aos="zoom-in-left" data-aos-delay="750" href="book.html">Брондау</a>
+        <a data-aos="zoom-in-left" data-aos-delay="900" href="gallery.html">Галерея</a>
+        <a data-aos="zoom-in-left" data-aos-delay="1150" href="blogs.html">Блог</a>
+        <a data-aos="zoom-in-left" data-aos-delay="1300" href="faq.html">Сұрақтар</a>
+
+    </nav>
+    <button data-aos="zoom-in-left"  data-aos-delay="1300" class="btn" id="theme-toggle"></button>
+    <a data-aos="zoom-in-left" data-aos-delay="1300" href="#book-form" class="btn">СаяХАТқа алға</a>
+</header>
+
+<br><br><br><br><br><br><br><br>
+
+<section class="destination">
+    <div class="heading">
+        <span>Бағыттар</span>
+        <h1>Өз таңдауыңды жаса</h1>
+        <div class="btn_wrapper" style=" text-align: center; width: 100%">
+            <button class="btn"  style=" margin: 0 auto;">
+                <a data-aos="zoom-in-left" data-aos-delay="1300" href="destinations.html">Text</a>
+            </button>
+        </div>
+    </div>
+    <div class="box-container">
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <div class="image">
+                <img src="images/almaty.jpg" alt="Almaty">
+            </div>
+            <div class="content">
+                <h3>Almaty</h3>
+                <audio id="audio-almaty" controls style="display:none;">
+                    <source src="audio/almaty.ogg" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <button class="btn" onclick="toggleAudio('audio-almaty', this)">Play</button>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <div class="image">
+                <img src="images/astana.jpg" alt="Astana">
+            </div>
+            <div class="content">
+                <h3>Astana</h3>
+                <audio id="audio-astana" controls style="display:none;">
+                    <source src="audio/astana.ogg" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <button class="btn" onclick="toggleAudio('audio-astana', this)">Play</button>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <div class="image">
+                <img src="images/shymkennt.jpeg" alt="Shymkent">
+            </div>
+            <div class="content">
+                <h3>Shymkent</h3>
+                <audio id="audio-shymkent" controls style="display:none;">
+                    <source src="audio/shymkent.ogg" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <button class="btn" onclick="toggleAudio('audio-shymkent', this)">Play</button>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <div class="image">
+                <img src="images/aktau.jpg" alt="Aktau">
+            </div>
+            <div class="content">
+                <h3>Aktau</h3>
+                <audio id="audio-aktau" controls style="display:none;">
+                    <source src="audio/aktau.ogg" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <button class="btn" onclick="toggleAudio('audio-aktau', this)">Play</button>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <div class="image">
+                <img src="images/turkistan.jpg" alt="Turkistan">
+            </div>
+            <div class="content">
+                <h3>Turkistan</h3>
+                <audio id="audio-turkistan" controls style="display:none;">
+                    <source src="audio/turkistan.ogg" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <button class="btn" onclick="toggleAudio('audio-turkistan', this)">Play</button>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <div class="image">
+                <img src="images/burabay.jpg" alt="Burabay">
+            </div>
+            <div class="content">
+                <h3>Burabay</h3>
+                <audio id="audio-burabay" controls style="display:none;">
+                    <source src="audio/burabay.ogg" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <button class="btn" onclick="toggleAudio('audio-burabay', this)">Play</button>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+
+    <div class="btn_wrapper" style=" text-align: center; width: 100%">
+        <button class="btn"  style=" margin: 0 auto;">
+            <a data-aos="zoom-in-left" data-aos-delay="1300" href="map.html" style="text-decoration: none; color: #ffffff">Карта</a>
+        </button>
+    </div>
+
+</section>
+
+
+<section class="footer" id="footer">
+    <div class="box-container">
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <a data-aos="zoom-in-left" href="#" class="logo"><i class="fa-solid fa-hat-cowboy"></i> СаяХАТ </a>
+            <p>СаяХАТтауға өз мүмкіндігіңді жіберіп алма</p>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-youtube"></a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <h3>quick links</h3>
+            <a href="main.html" class="links"><i class="fas fa-arrow-right"></i> Басты бет</a>
+            <a href="about.html" class="links"><i class="fas fa-arrow-right"></i> Біз туралы </a>
+            <a href="destinations.html" class="links"><i class="fas fa-arrow-right"></i> Бағыттар</a>
+            <a href="services.html" class="links"><i class="fas fa-arrow-right"></i> Қызметтер </a>
+            <a href="gallery.html" class="links"><i class="fas fa-arrow-right"></i> Галерея </a>
+            <a href="blogs.html" class="links"><i class="fas fa-arrow-right"></i> Блог</a>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <h3>contact info</h3>
+            <p><i class="fas fa-map"></i> Kazakhstan Astana</p>
+            <p><i class="fas fa-phone"></i> 87022220202</p>
+            <p><i class="fas fa-envelope"></i> sayahat@gmai.com</p>
+            <p><i class="fas fa-clock"></i> 07:00am - 10:00pm</p>
+        </div>
+
+        <div class="box-foot" data-aos="fade-up" data-aos-delay="150">
+            <h3>Жаңалықтар</h3>
+            <p>Соңғы жаңалықтардан қалмай жазыл</p>
+            <button id="subscribeBtn" class="btn">Subscribe</button>
+        </div>
+        <div id="subscribeModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Жаңалықтарға жазылу</h3>
+                <p>Соңғы жаңалықтардан қалмаңыз. Электрондық поштаңызды енгізіңіз:</p>
+                <form action="" >
+                    <input type="email" placeholder="Enter your email" class="modal-email">
+                    <input type="submit" value="Subscribe" class="modal-btn">
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="credit">
+    created by <span>IT-2301 Zhomart Begaly, Alisher Sharipov, Arsen Zharylkasinov</span> || all rights reserved!
+</div>
+<!--<script src="script/script.js"></script>-->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    let currentlyPlayingAudio = null;
+    function toggleAudio(audioId, button) {
+        const audio = document.getElementById(audioId);
+
+        if (currentlyPlayingAudio && currentlyPlayingAudio !== audio) {
+            currentlyPlayingAudio.pause();
+            currentlyPlayingAudio.currentTime = 0;
+            const previousButton = document.querySelector(`button[onclick="toggleAudio('${currentlyPlayingAudio.id}', this)"]`);
+            previousButton.textContent = 'Play';
+        }
+
+        if (audio.paused) {
+            audio.play();
+            button.textContent = 'Pause';
+            currentlyPlayingAudio = audio;
+        } else {
+            audio.pause();
+            button.textContent = 'Play';
+            currentlyPlayingAudio = null;
+        }
+    }
+
+    const toggleButton = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    toggleButton.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme');
+        theme = (theme === 'dark') ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    });
+
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+    if (prefersDarkScheme.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+</script>
+<script>
+    AOS.init({
+        offset: 140,
+    });
+</script>
+<script src="script/faq.js"></script>
+</body>
+</html>

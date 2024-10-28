@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Now</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<header class="header">
+    <div id="menu-btn" class="fas fa-bars"></div>
+    <a data-aos="zoom-in-left" href="#" class="logo"><i class="fa-solid fa-hat-cowboy"></i> СаяХАТ </a>
+    <nav class="navbar">
+        <a data-aos="zoom-in-left" data-aos-delay="300" href="main.html">Басты бет</a>
+        <a data-aos="zoom-in-left" data-aos-delay="450" href="about.html">Біз туралы</a>
+        <a data-aos="zoom-in-left" data-aos-delay="600" href="destinations.html">Бағыттар</a>
+        <a data-aos="zoom-in-left" data-aos-delay="600" href="services.html">Қызметтер</a>
+        <a data-aos="zoom-in-left" data-aos-delay="750" href="book.html">Брондау</a>
+        <a data-aos="zoom-in-left" data-aos-delay="900" href="gallery.html">Галерея</a>
+        <a data-aos="zoom-in-left" data-aos-delay="1150" href="blogs.html">Блог</a>
+        <a data-aos="zoom-in-left" data-aos-delay="1300" href="faq.html">Сұрақтар</a>
+    </nav>
+    <button data-aos="zoom-in-left"  data-aos-delay="1300" class="btn" id="theme-toggle"></button>
+    <a data-aos="zoom-in-left" data-aos-delay="1300" href="#book-form" class="btn">СаяХАТқа алға</a>
+</header>
+
+<br><br><br><br><br><br><br><br>
+
+<section class="booking" data-aos="fade-up" data-aos-delay="300">
+    <h1>Брондау</h1>
+    <div class="book-form">
+        <form action="/submit-booking" method="post" id="booking-form">
+            <div class="inputBox">
+                <span>Толық аты-жөні</span>
+                <input type="text" name="fullName" placeholder="Jane Doe" required>
+            </div>
+            <div class="inputBox">
+                <span>Email</span>
+                <input type="email" name="email" placeholder="john.doe@example.com" required>
+            </div>
+            <div class="inputBox">
+                <span>Телефон нөмері</span>
+                <input type="tel" name="phone" placeholder="+ 7 700 888 0009" required>
+            </div>
+            <div class="inputBox">
+                <span>Келу күні</span>
+                <input type="date" name="checkin" id="checkin" required>
+            </div>
+            <div class="inputBox">
+                <span>Кету күні</span>
+                <input type="date" name="checkout" id="checkout" required>
+            </div>
+            <div class="inputBox">
+                <span>Бөлме типі</span>
+                <select name="roomType" required>
+                    <option value="" disabled selected>Бөлме типін таңда</option>
+                    <option value="single">Біреулік</option>
+                    <option value="double">Екі адамға</option>
+                    <option value="suite">Отбасылық</option>
+                </select>
+
+            </div>
+            <div class="inputBox">
+                <span>Қосымша сұраныстар</span>
+                <textarea name="requests" placeholder="Қандай да бір қосымша сұраныс бар болса?" rows="4"></textarea>
+            </div>
+
+            <div class="inputBox" id="price-section">
+                <span>Бағасы</span>
+                <p id="price-display">Құны: -</p>
+            </div>
+
+
+            <button type="submit" class="btn">Брондау</button>
+        </form>
+    </div>
+</section>
+
+<section class="footer" id="footer">
+    <div class="box-container">
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <a data-aos="zoom-in-left" href="#" class="logo"><i class="fa-solid fa-hat-cowboy"></i> СаяХАТ </a>
+            <p>СаяХАТтауға өз мүмкіндігіңді жіберіп алма</p>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-youtube"></a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <h3>quick links</h3>
+            <a href="main.html" class="links"><i class="fas fa-arrow-right"></i> Басты бет</a>
+            <a href="about.html" class="links"><i class="fas fa-arrow-right"></i> Біз туралы </a>
+            <a href="destinations.html" class="links"><i class="fas fa-arrow-right"></i> Бағыттар</a>
+            <a href="services.html" class="links"><i class="fas fa-arrow-right"></i> Қызметтер </a>
+            <a href="gallery.html" class="links"><i class="fas fa-arrow-right"></i> Галерея </a>
+            <a href="blogs.html" class="links"><i class="fas fa-arrow-right"></i> Блог</a>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <h3>contact info</h3>
+            <p><i class="fas fa-map"></i> Kazakhstan Astana</p>
+            <p><i class="fas fa-phone"></i> 87022220202</p>
+            <p><i class="fas fa-envelope"></i> sayahat@gmai.com</p>
+            <p><i class="fas fa-clock"></i> 07:00am - 10:00pm</p>
+        </div>
+
+        <div class="box-foot" data-aos="fade-up" data-aos-delay="150">
+            <h3>Жаңалықтар</h3>
+            <p>Соңғы жаңалықтардан қалмай жазыл</p>
+            <button id="subscribeBtn" class="btn">Subscribe</button>
+        </div>
+        <div id="subscribeModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Жаңалықтарға жазылу</h3>
+                <p>Соңғы жаңалықтардан қалмаңыз. Электрондық поштаңызды енгізіңіз:</p>
+                <form action="" >
+                    <input type="email" placeholder="Enter your email" class="modal-email">
+                    <input type="submit" value="Subscribe" class="modal-btn">
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="credit">
+    created by <span>IT-2301 Zhomart Begaly, Alisher Sharipov, Arsen Zharylkasinov</span> || all rights reserved!
+</div>
+<script src="script/script.js"></script>
+<script src="script/books.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+
+    AOS.init({
+        duration: 800,
+        delay: 300,
+    });
+</script>
+
+</body>
+
+</html>
