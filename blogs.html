@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Blogs</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -13,20 +15,19 @@
 <body>
 <header class="header">
     <div id="menu-btn" class="fas fa-bars"></div>
-    <a data-aos="zoom-in-left" href="#" class="logo"><i class="fa-solid fa-hat-cowboy"></i> СаяХАТ </a>
+    <a data-aos="zoom-in-left" href="#" class="logo"><i class="fa-solid fa-hat-cowboy"></i> <span>СаяХАТ</span> </a>
     <nav class="navbar">
         <a data-aos="zoom-in-left" data-aos-delay="300" href="main.html">Басты бет</a>
         <a data-aos="zoom-in-left" data-aos-delay="450" href="about.html">Біз туралы</a>
         <a data-aos="zoom-in-left" data-aos-delay="600" href="destinations.html">Бағыттар</a>
         <a data-aos="zoom-in-left" data-aos-delay="600" href="services.html">Қызметтер</a>
         <a data-aos="zoom-in-left" data-aos-delay="750" href="book.html">Брондау</a>
-        <a data-aos="zoom-in-left" data-aos-delay="900" href="gallery.html">Галерея</a>
+        <a data-aos="zoom-in-left" data-aos-delay="900" href="map.html">Карта</a>
         <a data-aos="zoom-in-left" data-aos-delay="1150" href="blogs.html">Блог</a>
         <a data-aos="zoom-in-left" data-aos-delay="1300" href="faq.html">Сұрақтар</a>
     </nav>
     <button data-aos="zoom-in-left"  data-aos-delay="1300" class="btn" id="theme-toggle"></button>
 
-    <a data-aos="zoom-in-left" data-aos-delay="1300" href="#book-form" class="btn">СаяХАТқа алға</a>
 </header>
 <br><br><br><br><br><br>
 <section class="blog" id="blog">
@@ -36,8 +37,7 @@
     </div>
 
     <div class="box-container">
-
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+        <div class="box" >
             <div class="images">
                 <img src="images/astana.jpg" alt="Astana">
             </div>
@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+        <div class="box"  data-aos-delay="300">
             <div class="images">
                 <img src="images/almaty.jpg" alt="Almaty">
             </div>
@@ -65,7 +65,7 @@
             </div>
         </div>
 
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+        <div class="box" >
             <div class="images">
                 <img src="images/turkistan.jpg" alt="Turkistan">
             </div>
@@ -79,7 +79,7 @@
             </div>
         </div>
 
-        <div class="box" data-aos="zoom-in-up" data-aos-delay="600">
+        <div class="box" >
             <div class="images">
                 <img src="images/atyrau.jpg" alt="Atyrau">
             </div>
@@ -94,10 +94,14 @@
         </div>
 
     </div>
+    <br><br><br>
+    <a data-aos="zoom-in-left" data-aos-delay="1300" href="#book-form" class="btn">СаяХАТқа алға</a>
+
 </section>
+
 <section class="footer" id="footer">
-    <div class="box-container">
-        <div class="box" data-aos="fade-up" data-aos-delay="150">
+    <div class="card-container">
+        <div class="card" data-aos="fade-up" data-aos-delay="150">
             <a data-aos="zoom-in-left" href="#" class="logo"><i class="fa-solid fa-hat-cowboy"></i> СаяХАТ </a>
             <p>СаяХАТтауға өз мүмкіндігіңді жіберіп алма</p>
             <div class="share">
@@ -108,7 +112,7 @@
             </div>
         </div>
 
-        <div class="box" data-aos="fade-up" data-aos-delay="150">
+        <div class="card" data-aos="fade-up" data-aos-delay="150">
             <h3>quick links</h3>
             <a href="main.html" class="links"><i class="fas fa-arrow-right"></i> Басты бет</a>
             <a href="about.html" class="links"><i class="fas fa-arrow-right"></i> Біз туралы </a>
@@ -118,7 +122,7 @@
             <a href="blogs.html" class="links"><i class="fas fa-arrow-right"></i> Блог</a>
         </div>
 
-        <div class="box" data-aos="fade-up" data-aos-delay="150">
+        <div class="card" data-aos="fade-up" data-aos-delay="150">
             <h3>contact info</h3>
             <p><i class="fas fa-map"></i> Kazakhstan Astana</p>
             <p><i class="fas fa-phone"></i> 87022220202</p>
@@ -136,7 +140,7 @@
                 <span class="close">&times;</span>
                 <h3>Жаңалықтарға жазылу</h3>
                 <p>Соңғы жаңалықтардан қалмаңыз. Электрондық поштаңызды енгізіңіз:</p>
-                <form action="" >
+                <form action="">
                     <input type="email" placeholder="Enter your email" class="modal-email">
                     <input type="submit" value="Subscribe" class="modal-btn">
                 </form>
@@ -149,8 +153,6 @@
 <div class="credit">
     created by <span>IT-2301 Zhomart Begaly, Alisher Sharipov, Arsen Zharylkasinov</span> || all rights reserved!
 </div>
-
-<!-- Overlay for expanded content -->
 <div class="overlay"></div>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -160,7 +162,7 @@
         offset: 140,
     });
 </script>
-<script src="script/script.js"></script>
+<script src="script/script.js" defer></script>
 
 </body>
 </html>

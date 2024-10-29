@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Бағыттар</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -10,33 +11,46 @@
 <body>
 <header class="header">
     <div id="menu-btn" class="fas fa-bars"></div>
-    <a data-aos="zoom-in-left" href="#" class="logo"><i class="fa-solid fa-hat-cowboy"></i> СаяХАТ </a>
+    <a data-aos="zoom-in-left" href="#" class="logo"><i class="fa-solid fa-hat-cowboy"></i> <span>СаяХАТ</span> </a>
     <nav class="navbar">
-        <a data-aos="zoom-in-left" data-aos-delay="300" href="main.html">Басты бет</a>
-        <a data-aos="zoom-in-left" data-aos-delay="450" href="about.html">Біз туралы</a>
-        <a data-aos="zoom-in-left" data-aos-delay="600" href="destinations.html">Бағыттар</a>
-        <a data-aos="zoom-in-left" data-aos-delay="600" href="services.html">Қызметтер</a>
-        <a data-aos="zoom-in-left" data-aos-delay="750" href="book.html">Брондау</a>
-        <a data-aos="zoom-in-left" data-aos-delay="900" href="gallery.html">Галерея</a>
-        <a data-aos="zoom-in-left" data-aos-delay="1150" href="blogs.html">Блог</a>
-        <a data-aos="zoom-in-left" data-aos-delay="1300" href="faq.html">Сұрақтар</a>
+        <div class="menu-content">
+            <a data-aos="zoom-in-left" data-aos-delay="300" href="main.html">Басты бет</a>
+            <a data-aos="zoom-in-left" data-aos-delay="450" href="about.html">Біз туралы</a>
+            <a data-aos="zoom-in-left" data-aos-delay="600" href="destinations.html">Бағыттар</a>
+            <a data-aos="zoom-in-left" data-aos-delay="600" href="services.html">Қызметтер</a>
+            <a data-aos="zoom-in-left" data-aos-delay="750" href="book.html">Брондау</a>
+            <a data-aos="zoom-in-left" data-aos-delay="900" href="map.html">Карта</a>
+            <a data-aos="zoom-in-left" data-aos-delay="1150" href="blogs.html">Блог</a>
+            <a data-aos="zoom-in-left" data-aos-delay="1300" href="faq.html">Сұрақтар</a>
+        </div>
+
     </nav>
     <button data-aos="zoom-in-left"  data-aos-delay="1300" class="btn" id="theme-toggle"></button>
-    <a data-aos="zoom-in-left" data-aos-delay="1300" href="#book-form" class="btn">СаяХАТқа алға</a>
 </header>
 <br><br><br><br><br><br><br><br>
+
 <section class="destination" id="destination">
     <div class="heading">
         <span>Бағыттар</span>
         <h1>Өз таңдауыңды жаса</h1>
         <div class="btn_wrapper" style=" text-align: center; width: 100%">
             <button class="btn"  style=" margin: 0 auto;">
-                <a data-aos="zoom-in-left" data-aos-delay="1300" href="cities.html">Audio</a>
+                <a href="cities.html">Audio</a>
             </button>
+        </div>
+        <div class="btn_wrapper" >
+            <label for="regionFilter" class="filterRegion">Filter by Region:</label>
+            <select id="regionFilter" class="btn" style="margin: 0 auto;">
+                <option value="all">All</option>
+                <option value="north">North</option>
+                <option value="south">South</option>
+                <option value="east">East</option>
+                <option value="west">West</option>
+            </select>
         </div>
     </div>
     <div class="box-container">
-        <div class="box" data-aos="fade-up" data-aos-delay="150">
+        <div class="box"  data-region="south">
             <div class="image">
                 <img src="images/almaty.jpg" alt="">
             </div>
@@ -55,13 +69,13 @@
             </div>
         </div>
 
-        <div class="box" data-aos="fade-up" data-aos-delay="150">
+        <div class="box"  data-region="north">
             <div class="image">
                 <img src="images/astana.jpg" alt="">
             </div>
             <div class="content">
-                <h3>Nur-Sultan</h3>
-                <p>Нұр-Сұлтан – Қазақстанның астанасы, заманауи сәулетімен танымал.</p>
+                <h3>Астана</h3>
+                <p>Астана – Қазақстанның астанасы, заманауи сәулетімен танымал.</p>
                 <a href="#" class="read-more">read more <i class="fas fa-angle-right"></i></a>
             </div>
             <div class="extra-info">
@@ -74,7 +88,7 @@
             </div>
         </div>
 
-        <div class="box" data-aos="fade-up" data-aos-delay="150">
+        <div class="box"  data-region="south">
             <div class="image">
                 <img src="images/shymkennt.jpeg" alt="">
             </div>
@@ -93,7 +107,7 @@
             </div>
         </div>
 
-        <div class="box" data-aos="fade-up" data-aos-delay="150">
+        <div class="box"  data-region="west">
             <div class="image">
                 <img src="images/aktau.jpg" alt="">
             </div>
@@ -112,7 +126,7 @@
             </div>
         </div>
 
-        <div class="box" data-aos="fade-up" data-aos-delay="150">
+        <div class="box"  data-region="east">
             <div class="image">
                 <img src="images/karaganda.jpg" alt="">
             </div>
@@ -130,22 +144,155 @@
                 <p>Best time to visit: April to October.</p>
             </div>
         </div>
+
+        <div class="box"  data-region="west">
+            <div class="image">
+                <img src="images/atyrau.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Atyrau</h3>
+                <p>Атырау – мұнай астанасы, Каспий теңізіне жақын орналасқан қала.</p>
+                <a href="#" class="read-more">read more <i class="fas fa-angle-right"></i></a>
+            </div>
+            <div class="extra-info">
+                <h4>Availability:</h4>
+                <p>Available all year round.</p>
+                <h4>Price:</h4>
+                <p>$500 per person.</p>
+                <h4>Additional Info:</h4>
+                <p>Best time to visit: April to October.</p>
+            </div>
+        </div>
+
+        <div class="box"  data-region="north">
+            <div class="image">
+                <img src="images/kokshetau.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Kokshetau</h3>
+                <p>Көкшетау – табиғат сұлулығымен танымал, көлдер мен ормандардың өлкесі.</p>
+                <a href="#" class="read-more">read more <i class="fas fa-angle-right"></i></a>
+            </div>
+            <div class="extra-info">
+                <h4>Availability:</h4>
+                <p>Available all year round.</p>
+                <h4>Price:</h4>
+                <p>$450 per person.</p>
+                <h4>Additional Info:</h4>
+                <p>Best time to visit: May to September.</p>
+            </div>
+        </div>
+
+        <div class="box"  data-region="west">
+            <div class="image">
+                <img src="images/uralsk.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Oral (Uralsk)</h3>
+                <p>Орал – Қазақстанның батысында орналасқан, еуропалық мәдениеттің элементтерімен ерекшеленетін қала.</p>
+                <a href="#" class="read-more">read more <i class="fas fa-angle-right"></i></a>
+            </div>
+            <div class="extra-info">
+                <h4>Availability:</h4>
+                <p>Available all year round.</p>
+                <h4>Price:</h4>
+                <p>$400 per person.</p>
+                <h4>Additional Info:</h4>
+                <p>Best time to visit: May to October.</p>
+            </div>
+        </div>
+
+        <div class="box"  data-region="south">
+            <div class="image">
+                <img src="images/taraz.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Taraz</h3>
+                <p>Тараз – Қазақстанның ең көне қалаларының бірі, тарихи мұралармен танымал.</p>
+                <a href="#" class="read-more">read more <i class="fas fa-angle-right"></i></a>
+            </div>
+            <div class="extra-info">
+                <h4>Availability:</h4>
+                <p>Available all year round.</p>
+                <h4>Price:</h4>
+                <p>$480 per person.</p>
+                <h4>Additional Info:</h4>
+                <p>Best time to visit: April to October.</p>
+            </div>
+        </div>
+
+        <div class="box" data-region="north">
+            <div class="image">
+                <img src="images/pavlodar.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Pavlodar</h3>
+                <p>Павлодар – Ертіс өзенінің бойында орналасқан индустриалды қала.</p>
+                <a href="#" class="read-more">read more <i class="fas fa-angle-right"></i></a>
+            </div>
+            <div class="extra-info">
+                <h4>Availability:</h4>
+                <p>Available all year round.</p>
+                <h4>Price:</h4>
+                <p>$470 per person.</p>
+                <h4>Additional Info:</h4>
+                <p>Best time to visit: May to September.</p>
+            </div>
+        </div>
+
+        <div class="box"  data-region="east">
+            <div class="image">
+                <img src="images/taldykorgan.jpeg" alt="Taldykorgan">
+            </div>
+            <div class="content">
+                <h3>Taldykorgan</h3>
+                <p>Талдықорған – табиғат сұлулығымен және тарихи ескерткіштерімен танымал қала.</p>
+                <a href="#" class="read-more">read more <i class="fas fa-angle-right"></i></a>
+            </div>
+            <div class="extra-info">
+                <h4>Availability:</h4>
+                <p>Available all year round.</p>
+                <h4>Price:</h4>
+                <p>$480 per person.</p>
+                <h4>Additional Info:</h4>
+                <p>Best time to visit: May to October.</p>
+            </div>
+        </div>
+
+        <div class="box" " data-region="east">
+            <div class="image">
+                <img src="images/semey.jpeg" alt="Semey">
+            </div>
+            <div class="content">
+                <h3>Семей</h3>
+                <p>Семей – Қазақстанның тарихи және мәдени байлыққа толы қалаларының бірі.</p>
+                <a href="#" class="read-more">read more <i class="fas fa-angle-right"></i></a>
+            </div>
+            <div class="extra-info">
+                <h4>Availability:</h4>
+                <p>Available all year round.</p>
+                <h4>Price:</h4>
+                <p>$460 per person.</p>
+                <h4>Additional Info:</h4>
+                <p>Best time to visit: April to September.</p>
+            </div>
+        </div>
+
     </div>
+
+
+
     <br><br><br><br>
     <div class="btn_wrapper" style=" text-align: center; width: 100%">
         <button class="btn"  style=" margin: 0 auto;">
-            <a data-aos="zoom-in-left" data-aos-delay="1300" href="map.html" style="text-decoration: none; color: #ffffff">Карта</a>
+            <a href="map.html" style="text-decoration: none;">Карта</a>
         </button>
     </div>
-
-
-
-
 </section>
 
 <section class="footer" id="footer">
-    <div class="box-container">
-        <div class="box" data-aos="fade-up" data-aos-delay="150">
+    <div class="card-container">
+        <div class="card" data-aos="fade-up" data-aos-delay="150">
             <a data-aos="zoom-in-left" href="#" class="logo"><i class="fa-solid fa-hat-cowboy"></i> СаяХАТ </a>
             <p>СаяХАТтауға өз мүмкіндігіңді жіберіп алма</p>
             <div class="share">
@@ -156,7 +303,7 @@
             </div>
         </div>
 
-        <div class="box" data-aos="fade-up" data-aos-delay="150">
+        <div class="card" data-aos="fade-up" data-aos-delay="150">
             <h3>quick links</h3>
             <a href="main.html" class="links"><i class="fas fa-arrow-right"></i> Басты бет</a>
             <a href="about.html" class="links"><i class="fas fa-arrow-right"></i> Біз туралы </a>
@@ -166,7 +313,7 @@
             <a href="blogs.html" class="links"><i class="fas fa-arrow-right"></i> Блог</a>
         </div>
 
-        <div class="box" data-aos="fade-up" data-aos-delay="150">
+        <div class="card" data-aos="fade-up" data-aos-delay="150">
             <h3>contact info</h3>
             <p><i class="fas fa-map"></i> Kazakhstan Astana</p>
             <p><i class="fas fa-phone"></i> 87022220202</p>
@@ -184,7 +331,7 @@
                 <span class="close">&times;</span>
                 <h3>Жаңалықтарға жазылу</h3>
                 <p>Соңғы жаңалықтардан қалмаңыз. Электрондық поштаңызды енгізіңіз:</p>
-                <form action="" >
+                <form action="">
                     <input type="email" placeholder="Enter your email" class="modal-email">
                     <input type="submit" value="Subscribe" class="modal-btn">
                 </form>
@@ -193,23 +340,18 @@
 
     </div>
 </section>
+
 <audio id="click-sound" src="audio/click.mp3" preload="auto" style="display: none"></audio>
 
 <div class="credit">
     created by <span>IT-2301 Zhomart Begaly, Alisher Sharipov, Arsen Zharylkasinov</span> || all rights reserved!
 </div>
+<script src="script/script.js" defer></script>
+<script src="script/faq.js" defer></script>
+
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    document.querySelectorAll('.box').forEach(box => {
-        box.addEventListener('click', () => {
-            const extraInfo = box.querySelector('.extra-info');
-            if (extraInfo.style.display === 'block') {
-                extraInfo.style.display = 'none';
-            } else {
-                extraInfo.style.display = 'block';
-            }
-        });
-    });
+
     document.querySelectorAll('.box').forEach(box => {
         box.addEventListener('click', () => {
             const extraInfo = box.querySelector('.extra-info');
@@ -219,21 +361,9 @@
 
 
 
-    function playClickSound() {
-        const clickSound = document.getElementById('click-sound');
-        if (clickSound) {
-            clickSound.currentTime = 0;
-            clickSound.play();
-        }
-    }
-
-    document.addEventListener('click', playClickSound);
-
     AOS.init({
         offset: 140,
     });
 </script>
-<script src="script/script.js"></script>
-
 </body>
 </html>

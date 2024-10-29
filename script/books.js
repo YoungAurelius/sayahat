@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-'123' === 123
+
  
 
 document.addEventListener("DOMContentLoaded", function () {

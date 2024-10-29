@@ -11,7 +11,7 @@
   --button-background: #f70809;
   --button-hover-background: #e60607;
   --border-color: #ccc;
-  --background-blogs: #999999;
+  --background-blogs: #cabebe;
 
 }
 
@@ -116,13 +116,15 @@ section {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 10000;
   background: var(--navbar-background);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 9%;
 }
+
+
 .header .navbar a {
   font-size: 1.7rem;
   color: var(--text-color);
@@ -157,10 +159,98 @@ section {
 
 #menu-btn {
   font-size: 2.5rem;
-  color: #fff;
+  color: var(--text-color);
   cursor: pointer;
   display: none;
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    display: none; /* Hide the navbar by default */
+    flex-direction: column; /* Stack items vertically */
+    position: absolute; /* Overlay on top of content */
+    top: 80px; /* Adjust based on header height */
+    left: 0;
+    right: 0;
+    max-height: 400px; /* Set a max height for the scrollable area */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 1rem; /* Add padding for spacing */
+    background: var(--background-blogs); /* Match header background */
+    z-index: 10; /* Ensure it's above other content */
+  }
+
+  .header {
+    display: flex;
+    align-items: center; /* Center items */
+  }
+
+
+
+.logo{
+  margin: 0 auto; /* Automatically adjust margins to center the logo */
+
+}
+
+  .navbar.active {
+    display: flex;
+  }
+
+  #menu-btn {
+    display: block;
+    margin-right: auto; /* Position the menu button on the left */
+
+  }
+
+  #theme-toggle {
+    font-size: 1.5rem; /* Adjust font size */
+    width: 2rem; /* Adjust width */
+    height: 2rem; /* Adjust height */
+    margin-left: auto; /* Position the toggle button on the right */
+    line-height: 2rem; /* Set line-height to align vertically */
+    display: flex; /* Use flex to align icon if needed */
+    align-items: center; /* Center vertically */
+
+  }
+
+
+  .navbar a {
+    font-size: 1.3rem; /* Smaller font size on mobile */
+    padding: 1rem; /* Add padding to links */
+    text-align: center; /* Center the text */
+  }
+
+  .btn {
+    margin-left: 0; /* Center the buttons */
+    margin-top: 1rem; /* Add space above buttons */
+    width: 100%; /* Full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar a {
+    font-size: 2rem; /* Further decrease font size */
+  }
+
+  .logo span {
+    display: none; /* Hide the logo name on small screens */
+  }
+  .logo {
+    font-size: 2rem; /* Smaller logo size */
+  }
+
+  #menu-btn i{
+    font-size: 1.5rem; /* Adjust menu button size */
+  }
+  #theme-toggle i{
+    width: 30px; /* Smaller width for mobile */
+    height: 30px; /* Smaller height for mobile */
+    font-size: 20px; /* Smaller icon size for mobile */
+
+  }
+
+
+}
+
 
 .destination .box-container {
   display: grid;
@@ -211,31 +301,90 @@ section {
   padding-right: 0.5rem;
 }
 
-.services .box-container {
+.destination .card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+  gap: 1.5rem;
+}
+.destination .card-container .card {
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--background-blogs);
+}
+.destination .card-container .card:hover .image img {
+  transform: scale(1.1);
+}
+.destination .card-container .card .image {
+  height: 20rem;
+  overflow: hidden;
+  width: 100%;
+}
+.destination .card-container .card .image img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.destination .card-container .card .content {
+  padding: 2rem;
+  text-align: center;
+}
+.destination .card-container .card .content h3 {
+  font-size: 2rem;
+  color: var(--text-color);
+}
+.destination .card-container .card .content p {
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  line-height: 2;
+}
+.destination .card-container .card .content a {
+  font-size: 1.7rem;
+  color: var(--text-color);
+}
+.destination .card-container .card .content a:hover {
+  padding-left: 1rem;
+}
+.destination .card-container .card .content a i {
+  padding-right: 0.5rem;
+}
+
+
+.btn_wrapper{
+  text-align: left;
+  width: 100%;
+}
+.filterRegion{
+  margin-top: 0.5rem;
+  font-size: 2rem;
+  color: var(--text-color);
+}
+.services .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
   gap: 1.5rem;
 }
-.services .box-container .box {
+.services .card-container .card {
   background: var(--background-blogs);
   border-radius: 1rem;
   padding: 3rem;
   text-align: center;
   border: 0.2rem solid #111;
 }
-.services .box-container .box:hover {
+.services .card-container .card:hover {
   border: 0.2rem solid #f70809;
 }
-.services .box-container .box i {
+.services .card-container .card i {
   font-size: 5rem;
   color: #f70809;
   margin-bottom: 2rem;
 }
-.services .box-container .box h3 {
+.services .card-container .card h3 {
   font-size: 2rem;
   color: var(--text-color);
 }
-.services .box-container .box p {
+.services .card-container .card p {
   color: var(--text-color);
   padding: 1rem 0;
   font-size: 1.5rem;
@@ -263,7 +412,7 @@ section {
 }
 .gallery .box-container .box span {
   font-size: 1.4rem;
-  color: #aaa;
+  color: var(--text-color);
 }
 .gallery .box-container .box h3 {
   margin-top: 0.5rem;
@@ -278,8 +427,11 @@ section {
 }
 .blog .box-container .box {
   border-radius: 1rem;
-  background: #222;
+  background: var(--background-blogs);
   overflow: hidden;
+  padding: 0;
+
+
 }
 .blog .box-container .box:hover .images img {
   transform: scale(1.1);
@@ -293,20 +445,21 @@ section {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+    object-fit: cover;
 }
 .blog .box-container .box .content {
   padding: 2rem;
+  text-align: center;
 }
 .blog .box-container .box .content .link {
   font-size: 2rem;
-  color: #fff;
+  color: var(--text-color);
 }
 .blog .box-container .box .content .link:hover {
   color: #f70809;
 }
 .blog .box-container .box .content p {
-  color: #aaa;
+  color: var(--text-color);
   padding: 1rem 0;
   font-size: 1.5rem;
   line-height: 2;
@@ -328,46 +481,52 @@ section {
   padding-right: 0.5rem;
   color: var(--text-color);
 }
-.footer{
+
+.footer {
   background: var(--footer-background);
   color: var(--footer-text-color);
 }
-.footer .box-container {
+.footer .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   gap: 1.5rem;
 }
-.footer .box-container .box {
-  padding: 1rem 0;
+.footer .card-container{
+  background-color: var(--footer-background);
 }
-.footer .box-container .box .logo {
+.footer .card-container .card {
+  padding: 1rem 0;
+
+}
+.footer .card-container .card .logo {
   padding-bottom: 1rem;
 }
-.footer .box-container .box h3 {
+.footer .card-container .card h3 {
   font-size: 2.2rem;
   color: var(--text-color);
   padding: 1rem 0;
 }
+
 .box-foot{
   font-size: 1.4rem;
   color: var(--text-color);
   padding: 1rem 0;
 
 }
-.footer .box-container .box p {
+.footer .card-container .card p {
   font-size: 1.4rem;
   color: var(--text-color);
   padding: 1rem 0;
-  line-height: 2;
+  line-height: 1.5; /* Adjusted line-height for better readability */
 }
-.footer .box-container .box p i {
+.footer .card-container .card p i {
   padding-right: 0.5rem;
   color: #f70809;
 }
-.footer .box-container .box .share {
+.footer .card-container .card .share {
   padding-top: 1rem;
 }
-.footer .box-container .box .share a {
+.footer .card-container .card .share a {
   height: 4.5rem;
   width: 4.5rem;
   line-height: 4rem;
@@ -378,27 +537,27 @@ section {
   margin-right: 0.5rem;
   text-align: center;
 }
-.footer .box-container .box .share a:hover {
+.footer .card-container .card .share a:hover {
   background: #f70809;
   color: #111;
 }
-.footer .box-container .box .links {
+.footer .card-container .card .links {
   font-size: 1.4rem;
   color: var(--text-color);
   padding: 1rem 0;
   display: block;
 }
-.footer .box-container .box .links:hover {
+.footer .card-container .card .links:hover {
   color: #f70809;
 }
-.footer .box-container .box .links:hover i {
+.footer .card-container .card .links:hover i {
   padding-right: 2rem;
 }
-.footer .box-container .box .links i {
+.footer .card-container .card .links i {
   padding-right: 0.5rem;
   color: #f70809;
 }
-.footer .box-container .box form .email {
+.footer .card-container .card form .email {
   width: 100%;
   border-radius: 5rem;
   border: 0.2rem solid #f70809;
@@ -409,6 +568,41 @@ section {
   margin-bottom: 1rem;
   padding: 1.2rem 1.4rem;
 }
+
+@media (max-width: 480px) {
+  .footer .card-container {
+    display: flex; /* Use Flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text within each card */
+  }
+
+  .footer .card-container .card {
+    width: 90%; /* Allow cards to take most of the width */
+    margin: 0.5rem 0; /* Add some margin between cards */
+  }
+
+  .footer .card-container .card p {
+    font-size: 1.2rem; /* Smaller font size for mobile */
+  }
+
+  .footer .card-container .card .share a {
+    height: 3.5rem; /* Smaller size for social share buttons */
+    width: 3.5rem;
+    line-height: 3rem; /* Center the icon vertically */
+    font-size: 1.4rem; /* Smaller icon size */
+  }
+
+  .footer .card-container .card .links {
+    font-size: 1.2rem; /* Smaller font size for links */
+  }
+
+  .credit {
+    font-size: 1.5rem; /* Smaller font size for credit */
+    padding: 1.5rem 0; /* Adjust padding for smaller screens */
+  }
+}
+
 
 .credit {
   background: var(--background-color);
@@ -441,7 +635,7 @@ section {
     top: 99%;
     left: 0;
     right: 0;
-    background: #222;
+    background: var(--navbar-background);
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
             clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   }
@@ -526,7 +720,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--background-color);
   z-index: -1;
 }
 
@@ -539,11 +733,10 @@ section {
   letter-spacing: 1px;
 }
 
-/* Form Container */
 .book-form {
   width: 80%;
   margin: 0 auto;
-  background: rgba(34, 34, 34, 0.9); /* Slight transparency for form background */
+  background: var(--navbar-background);
   border-radius: 1rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
   padding: 4rem 3rem;
@@ -556,15 +749,14 @@ section {
   justify-content: space-between;
 }
 
-/* Input Box Styling */
 .book-form form .inputBox {
-  flex: 1 1 45%; /* Inputs take up about half of the width on larger screens */
+  flex: 1 1 45%;
   min-width: 20rem;
 }
 
 .book-form form .inputBox span {
   font-size: 1.8rem;
-  color: #fff;
+  color: var(--text-color);
   display: block;
   margin-bottom: 1rem;
   font-weight: 600;
@@ -577,8 +769,8 @@ section {
   padding: 1.2rem 1.4rem;
   border-radius: 0.7rem;
   border: none;
-  background: #444;
-  color: #fff;
+  background: var(--background-color);
+  color: var(--footer-text-color);
   font-size: 1.6rem;
   transition: border 0.3s, box-shadow 0.3s;
   box-shadow: inset 0 0 0.5rem rgba(255, 255, 255, 0.1);
@@ -603,7 +795,6 @@ section {
   resize: vertical;
 }
 
-/* Submit Button */
 .book-form form .btn {
   background: #f70809;
   color: #fff;
@@ -622,7 +813,7 @@ section {
   box-shadow: 0 0 1.5rem rgba(247, 8, 9, 0.5); /* Red glow effect on hover */
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .book-form {
     width: 95%;
@@ -680,7 +871,7 @@ section {
   margin-top: 0.5rem;
 }
 .about .content p {
-  color: #aaa;
+  color: var(--text-color);
   padding: 1rem 0;
   font-size: 1.5rem;
   line-height: 2;
@@ -704,7 +895,9 @@ section {
   height: auto;
   border-radius: 10px;
 }
-
+.box.expanded{
+  margin: 30px;
+}
 
 .box.expanded .images img {
   width: 100%;
@@ -768,8 +961,8 @@ body.no-scroll {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 20px;
-  background-color: #333;
-  padding: 20px;
+  background-color: var(--navbar-background);
+  padding: 0;
   overflow-y: auto;
 }
 
@@ -942,7 +1135,7 @@ body.no-scroll {
 
 .faq-section {
   padding: 4rem 9%;
-  background-color: #222;
+  background-color: var(--background-color);
 }
 
 .faq-container {
@@ -951,15 +1144,15 @@ body.no-scroll {
 }
 
 .faq {
-  background: #333;
+  background: var(--background-color);
   margin-bottom: 1.5rem;
   border-radius: 0.5rem;
   overflow: hidden;
 }
 
 .faq .question {
-  background: #444;
-  color: #fff;
+  background: var(--background-color);
+  color: var(--text-color);
   padding: 1.5rem 2rem;
   font-size: 1.8rem;
   display: flex;
@@ -969,7 +1162,7 @@ body.no-scroll {
 }
 
 .faq .question:hover {
-  background: #555;
+  background: var(--background-color);
 }
 
 .faq .question i {
@@ -979,8 +1172,8 @@ body.no-scroll {
 }
 
 .faq .answer {
-  background: #444;
-  color: #aaa;
+  background: var(--background-color);
+  color: var(--text-color);
   padding: 1.5rem 2rem;
   font-size: 1.6rem;
   line-height: 1.8;
@@ -996,7 +1189,7 @@ body.no-scroll {
 }
 .faq-section {
   padding: 4rem 9%;
-  background-color: #222;
+  background-color: var(--background-color);
 }
 
 .faq-container {
@@ -1005,15 +1198,15 @@ body.no-scroll {
 }
 
 .faq {
-  background: #333;
+  background: var(--navbar-background);
   margin-bottom: 1.5rem;
   border-radius: 0.5rem;
   overflow: hidden;
 }
 
 .faq .question {
-  background: #444;
-  color: #fff;
+  background: var(--footer-background);
+  color: var(--footer-text-color);
   padding: 1.5rem 2rem;
   font-size: 1.8rem;
   display: flex;
@@ -1023,7 +1216,7 @@ body.no-scroll {
 }
 
 .faq .question:hover {
-  background: #555;
+  background: var(--background-color);
 }
 
 .faq .question i {
@@ -1033,8 +1226,8 @@ body.no-scroll {
 }
 
 .faq .answer {
-  background: #444;
-  color: #aaa;
+  background: var(--navbar-background);
+  color: var(--footer-text-color);
   padding: 1.5rem 2rem;
   font-size: 1.6rem;
   line-height: 1.8;
@@ -1066,8 +1259,8 @@ body.no-scroll {
 }
 
 .modal-content {
-  color: #ffffff;
-  background: #111;
+  color: var(--text-color);
+  background: var(--navbar-background);
   margin: 10% auto;
   padding: 20px;
   width: 400px;
@@ -1084,7 +1277,7 @@ body.no-scroll {
 
 .modal p {
   font-size: 16px;
-  color: #ffffff;
+  color: var(--text-color);
   margin-bottom: 15px;
 }
 
@@ -1106,7 +1299,7 @@ body.no-scroll {
   padding: 10px;
   margin-bottom: 15px;
   border-radius: 5px;
-  background-color: #444;
+  background-color: var(--background-blogs);
   border: 0.2rem solid #f70809;
   box-shadow: 0 0 1rem rgba(247, 8, 9, 0.5);
   color: #aaa;
@@ -1201,4 +1394,20 @@ body.no-scroll {
 }
 .cities .box-container .box .content a i {
   padding-right: 0.5rem;
+}
+#theme-toggle {
+  font-size: 24px;
+  color: #ffc107; /* Initial color for light mode (sun) */
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+[data-theme="dark"] #theme-toggle {
+  color: #f1c40f;
+}
+
+#theme-toggle i {
+  transition: transform 0.3s ease;
 }
