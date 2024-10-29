@@ -27,54 +27,70 @@
 
 <br><br><br><br><br><br><br><br>
 
+<section class="log">
+    <div class="auth-container">
+        <button id="loginBtn" class="btn">Login</button>
+        <button id="logoutBtn" class="btn" style="display:none;">Logout</button>
+    </div>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Login</h3>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Enter your username" required>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+</section>
 <section class="booking" data-aos="fade-up" data-aos-delay="300">
     <h1>Брондау</h1>
     <div class="book-form">
-        <form action="/submit-booking" method="post" id="booking-form">
+        <form id="booking-form">
             <div class="inputBox">
                 <span>Толық аты-жөні</span>
-                <input type="text" name="fullName" placeholder="Jane Doe" required>
+                <input type="text" id="username" placeholder="Jane Doe" required>
             </div>
             <div class="inputBox">
                 <span>Email</span>
-                <input type="email" name="email" placeholder="john.doe@example.com" required>
+                <input type="email" id="email" placeholder="john.doe@example.com" required>
             </div>
             <div class="inputBox">
                 <span>Телефон нөмері</span>
-                <input type="tel" name="phone" placeholder="+ 7 700 888 0009" required>
+                <input type="tel" id="phone" placeholder="+ 7 700 888 0009" required>
             </div>
             <div class="inputBox">
                 <span>Келу күні</span>
-                <input type="date" name="checkin" id="checkin" required>
+                <input type="date" id="checkin" required>
             </div>
             <div class="inputBox">
                 <span>Кету күні</span>
-                <input type="date" name="checkout" id="checkout" required>
+                <input type="date" id="checkout" required>
             </div>
             <div class="inputBox">
                 <span>Бөлме типі</span>
-                <select name="roomType" required>
+                <select id="roomType" required>
                     <option value="" disabled selected>Бөлме типін таңда</option>
                     <option value="single">Біреулік</option>
                     <option value="double">Екі адамға</option>
                     <option value="suite">Отбасылық</option>
                 </select>
-
             </div>
             <div class="inputBox">
                 <span>Қосымша сұраныстар</span>
-                <textarea name="requests" placeholder="Қандай да бір қосымша сұраныс бар болса?" rows="4"></textarea>
+                <textarea id="requests" placeholder="Қандай да бір қосымша сұраныс бар болса?" rows="4"></textarea>
             </div>
-
-            <div class="inputBox" id="price-section">
-                <span>Бағасы</span>
-                <p id="price-display">Құны: -</p>
-            </div>
-
-
             <button type="submit" class="btn">Брондау</button>
         </form>
     </div>
+</section>
+
+<section id="user-list">
+    <h2>Saved Users:</h2>
+    <ul id="user-display"></ul>
 </section>
 
 <section class="footer" id="footer">
@@ -131,6 +147,7 @@
 <div class="credit">
     created by <span>IT-2301 Zhomart Begaly, Alisher Sharipov, Arsen Zharylkasinov</span> || all rights reserved!
 </div>
+<script src="script/auth.js"></script>
 <script src="script/script.js"></script>
 <script src="script/books.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
