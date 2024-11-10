@@ -2,7 +2,7 @@ Here's an enhanced version of your README for the СаяХАТ project. This ver
 
 ---
 
-# СаяХАТ 🌏
+# СаяХАТ 🤠
 Welcome to **СаяХАТ**, a user-friendly travel agency website designed to make planning your next adventure easy and enjoyable. This platform provides comprehensive information about various destinations, services, and booking options, all in a beautiful, accessible, and feature-rich layout.
 
 ## Table of Contents
