@@ -1292,6 +1292,13 @@ body.no-scroll {
   color: #000;
 }
 
+.modal .close2 {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
 .modal-email {
   width: 100%;
   padding: 10px;
@@ -1441,4 +1448,40 @@ body.no-scroll {
   right: 15px;
   font-size: 20px;
   cursor: pointer;
+}
+
+.close2 {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#loginForm input {
+  box-shadow: 0 0 1.5rem rgb(51, 153, 255);
+  border-radius: 40px;
+  margin-top: 10px;
+  padding: 12px 20px; /* Increases padding inside the input */
+  font-size: 16px; /* Increases the font size */
+  width: 100%; /* Makes the input width 100% of the parent container */
+  max-width: 400px; /* Optional: Adds a maximum width to prevent inputs from becoming too wide */
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+#signupModal input {
+  box-shadow: 0 0 1.5rem rgb(51, 153, 255);
+  border-radius: 40px;
+  margin-top: 10px;
+  padding: 12px 20px; /* Increases padding inside the input */
+  font-size: 16px; /* Increases the font size */
+  width: 100%; /* Makes the input width 100% of the parent container */
+  max-width: 400px; /* Optional: Adds a maximum width to prevent inputs from becoming too wide */
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+#loginModal {
+  display: none;
 }

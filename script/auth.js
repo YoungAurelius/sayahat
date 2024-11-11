@@ -46,125 +46,199 @@
 //         }
 //     };
 // });
-
-
-const loginModal = document.getElementById('loginModal');
+// Modals and buttons
+const loginModal = document.getElementById('loginModal'); // Make sure this targets the correct element
+const signupModal = document.getElementById('signupModal');
 const loginBtn = document.getElementById('loginBtn');
 const logoutBtn = document.getElementById('logoutBtn');
 const closeLoginModal = document.querySelector('.close');
+const closeSignupModal = document.querySelector('.close2');
 const loginForm = document.getElementById('loginForm');
+const signupForm = document.getElementById('signupForm');
+const errorMessage = document.getElementById('errorMessage'); // Element to display error messages
+const signupBtn = document.getElementById('signupBtn');
 
-loginBtn.addEventListener('click', () => {
-    loginModal.style.display = 'block';
-});
-
-closeLoginModal.addEventListener('click', () => {
-    loginModal.style.display = 'none';
-});
-
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    if (username && password) {
-        localStorage.setItem('username', username);
-        localStorage.setItem('isLoggedIn', true);
-        showLoginStatus();
-        loginModal.style.display = 'none';
-    } else {
-        alert("Please enter a valid username and password.");
-    }
-});
+// Booking form elements
+const bookBtn = document.getElementById('bookBtn');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const phoneInput = document.getElementById('phone');
+const checkinInput = document.getElementById('checkin');
+const checkoutInput = document.getElementById('checkout');
+const roomTypeInput = document.getElementById('roomType');
+const requestsInput = document.getElementById('requests');
+const userDisplay = document.getElementById('user-display');
 
 function showLoginStatus() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     if (isLoggedIn) {
         loginBtn.style.display = 'none';
+        signupBtn.style.display = 'none';
         logoutBtn.style.display = 'block';
-        document.getElementById('booking-form').addEventListener('submit', saveBookingInfo);
+
+        const currentUser = localStorage.getItem('currentUser');
+        document.getElementById('userStatus').textContent = `Welcome, ${currentUser}!`; // Display logged-in user's name
     } else {
         loginBtn.style.display = 'block';
+        signupBtn.style.display = 'block';
         logoutBtn.style.display = 'none';
-        document.getElementById('booking-form').removeEventListener('submit', saveBookingInfo);
+        document.getElementById('userStatus').textContent = ''; // Clear user status if logged out
     }
 }
 
+// Handle login
+loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('loginUsername').value;
+    const password = document.getElementById('loginPassword').value;
+
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    const user = users.find(u => u.username === username && u.password === password);
+
+    if (user) {
+        localStorage.setItem('isLoggedIn', true);
+        localStorage.setItem('currentUser', username);
+        showLoginStatus();
+        loginModal.style.display = 'none'; // Close the modal
+    } else {
+        errorMessage.textContent = 'Incorrect username or password';
+    }
+});
+
+// Handle sign up
+signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('signupUsername').value;
+    const password = document.getElementById('signupPassword').value;
+
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    const existingUser = users.find(u => u.username === username);
+
+    if (existingUser) {
+        errorMessage.textContent = 'Username already exists';
+    } else {
+        const newUser = { username, password, bookings: [] };
+        users.push(newUser);
+        localStorage.setItem('users', JSON.stringify(users));
+        localStorage.setItem('isLoggedIn', true);
+        localStorage.setItem('currentUser', username);
+        showLoginStatus();
+        signupModal.style.display = 'none'; // Close the modal
+    }
+});
+
+// Handle logout
 logoutBtn.addEventListener('click', () => {
-    localStorage.removeItem('username');
     localStorage.removeItem('isLoggedIn');
-    localStorage.removeItem('bookingInfo');
+    localStorage.removeItem('currentUser');
     showLoginStatus();
 });
 
-function saveBookingInfo(e) {
-    e.preventDefault();
-
-    const bookingInfo = {
-        fullName: document.querySelector('input[name="fullName"]').value,
-        email: document.querySelector('input[name="email"]').value,
-        phone: document.querySelector('input[name="phone"]').value,
-        checkin: document.querySelector('input[name="checkin"]').value,
-        checkout: document.querySelector('input[name="checkout"]').value,
-        roomType: document.querySelector('select[name="roomType"]').value,
-        requests: document.querySelector('textarea[name="requests"]').value,
-    };
-
-    localStorage.setItem('bookingInfo', JSON.stringify(bookingInfo));
-    alert("Booking saved successfully!");
-}
-
+// On page load, check login status
 document.addEventListener('DOMContentLoaded', showLoginStatus);
 
-function saveUser(username, email, phone, bookingInfo) {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-
-    // Create a new user object
-    const newUser = {
-        username: username,
-        email: email,
-        phone: phone,
-        bookingInfo: bookingInfo,
-        timestamp: new Date().toISOString()
-    };
-
-    users.push(newUser);
-
-    localStorage.setItem('users', JSON.stringify(users));
-}
-
-function displayUsers() {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const userDisplay = document.getElementById('user-display');
-    userDisplay.innerHTML = '';
-
-    users.forEach((user, index) => {
-        const li = document.createElement('li');
-        li.textContent = `User ${index + 1}: ${user.username}, Email: ${user.email}, Phone: ${user.phone}, Booking Info: ${JSON.stringify(user.bookingInfo)}`;
-        userDisplay.appendChild(li);
-    });
-}
-
-document.getElementById('booking-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Get user inputs
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const bookingInfo = {
-        checkin: document.getElementById('checkin').value,
-        checkout: document.getElementById('checkout').value,
-        roomType: document.getElementById('roomType').value,
-        requests: document.getElementById('requests').value
-    };
-
-    saveUser(username, email, phone, bookingInfo);
-
-    document.getElementById('booking-form').reset();
-
-    displayUsers();
+// Open modals when the user clicks login or signup buttons
+loginBtn.addEventListener('click', () => {
+    loginModal.style.display = 'block';
 });
 
-displayUsers();
+signupBtn.addEventListener('click', () => {
+    signupModal.style.display = 'block';
+});
 
+// Close modals when the user clicks the close button
+closeLoginModal.addEventListener('click', () => {
+    loginModal.style.display = 'none';
+});
+
+closeSignupModal.addEventListener('click', () => {
+    signupModal.style.display = 'none';
+});
+
+// Close modals when clicking outside the modal (for better UX)
+window.addEventListener('click', (event) => {
+    if (event.target === loginModal) {
+        loginModal.style.display = 'none';
+    }
+    if (event.target === signupModal) {
+        signupModal.style.display = 'none';
+    }
+});
+
+
+// Handling booking after login
+function handleBooking() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn) {
+        const currentUser = localStorage.getItem('currentUser');
+
+        // Get the form input values
+        const name = nameInput.value;
+        const email = emailInput.value;
+        const phone = phoneInput.value;
+        const checkin = checkinInput.value;
+        const checkout = checkoutInput.value;
+        const roomType = roomTypeInput.value;
+        const requests = requestsInput.value;
+
+        // Validate form data
+        if (!name || !email || !phone || !checkin || !checkout || !roomType) {
+            alert('Please fill in all required fields!');
+            return;
+        }
+
+        // Retrieve users data from localStorage
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const user = users.find(u => u.username === currentUser);
+
+        if (user) {
+            // Booking details
+            const bookingDetails = {
+                name,
+                email,
+                phone,
+                checkin,
+                checkout,
+                roomType,
+                requests,
+                date: new Date().toLocaleDateString()
+            };
+
+            // Add the booking to the user's bookings array
+            user.bookings.push(bookingDetails);
+
+            // Update the user data in localStorage with the new booking information
+            const updatedUsers = users.map(u => u.username === currentUser ? user : u);
+            localStorage.setItem('users', JSON.stringify(updatedUsers));
+
+            alert('Booking successful!');
+            displayBookings(); // Optionally, update booking display
+        }
+    } else {
+        alert('You must log in to make a booking!');
+    }
+}
+
+// Display bookings of the logged-in user
+function displayBookings() {
+    const currentUser = localStorage.getItem('currentUser');
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const user = users.find(u => u.username === currentUser);
+
+    if (user) {
+        userDisplay.innerHTML = ''; // Clear previous bookings
+        user.bookings.forEach((booking, index) => {
+            const li = document.createElement('li');
+            li.textContent = `Booking ${index + 1}: ${booking.roomType} from ${booking.checkin} to ${booking.checkout}, Additional Requests: ${booking.requests}`;
+            userDisplay.appendChild(li);
+        });
+    }
+}
+
+// Attach the handleBooking function to the booking button
+bookBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent the form from submitting normally
+    handleBooking();
+});
