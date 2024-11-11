@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
- 
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const checkinInput = document.getElementById("checkin");
@@ -30,8 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     checkinInput.addEventListener("change", function () {
         const checkinDate = new Date(checkinInput.value);
+        const nextDay = new Date(checkinDate);
+        nextDay.setDate(checkinDate.getDate() + 1); // Set next day as the minimum for checkout
 
-        checkoutInput.setAttribute('min', checkinInput.value);
+        checkoutInput.setAttribute('min', nextDay.toISOString().split('T')[0]);
 
         if (checkoutInput.value) {
             const checkoutDate = new Date(checkoutInput.value);
@@ -49,6 +51,21 @@ document.addEventListener("DOMContentLoaded", function () {
         if (checkoutDate <= checkinDate) {
             alert("Кету күні келу күнінен кейін болуы керек.");
             checkoutInput.value = '';
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const phoneInput = document.getElementById("phone");
+
+    const phonePattern = /^\+7\d{10}$/;  // Russian phone number pattern: +7 followed by 10 digits
+
+    // Phone number real-time validation
+    phoneInput.addEventListener("input", function () {
+        if (!phonePattern.test(phoneInput.value)) {
+            phoneInput.setCustomValidity("Телефон нөмірі дұрыс емес. Мысалы: +7 700 888 0009");
+        } else {
+            phoneInput.setCustomValidity(""); // Clear error if valid
         }
     });
 });
