@@ -692,13 +692,13 @@ section {
 }
 .home .content h3 {
   font-size: 6vw;
-  color: var(--text-color);
+  color: #ffffff;
 }
 .home .content p {
   max-width: 60rem;
   margin: 1rem auto;
   font-size: 1.5rem;
-  color:var(--text-color);
+  color: #ffffff;
   line-height: 2;
 }
 
