@@ -203,5 +203,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const controlButtons = document.querySelectorAll('.control-btn');
+    const videoElement = document.querySelector('.video');
+
+    controlButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const videoSrc = this.getAttribute('data-src');
+            videoElement.src = videoSrc;
+            videoElement.play(); // Automatically play the new video
+        });
+    });
+});
+
 
 
